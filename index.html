@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Filterable Gallery</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <style>
+    img {
+      width: 300px;
+      height: 100px;
+    }
+  </style>
+  
+
+<section class="gallery">
+  <div class="container">
+    <div class="row">
+      <div class="gallery-filter">
+        <span class="filter-item active" data-filter="all">All</span>
+        <span class="filter-item" data-filter="Nature">Nature</span>
+        <span class="filter-item" data-filter="Seasons">Seasons</span>
+        <span class="filter-item" data-filter="Art">Art</span>
+        <span class="filter-item" data-filter="Food">Food</span>
+        <span class="filter-item" data-filter="Animals">Animals</span>
+        
+      </div>
+    </div>
+    <div class="row">
+      <!-- gallery item start -->
+      <div class="gallery-item Nature">
+        <div class="gallery-item-inner">
+          <img src = "images/nature1.jpg" alt="Nature">
+        </div>
+      </div>
+      <!-- gallery item end -->
+      <!-- gallery item start -->
+      <div class="gallery-item Seasons">
+        <div class="gallery-item-inner">
+          <img src = "images/season1.jpg" alt="Seasons">
+        </div>
+      </div>
+      <!-- gallery item end -->
+      <!-- gallery item start -->
+      <div class="gallery-item camera">
+        <div class="gallery-item-inner">
+          <img src = "" alt="camera">
+        </div>
+      </div>
+      <!-- gallery item end -->
+      <!-- gallery item start -->
+      <div class="gallery-item headphone">
+        <div class="gallery-item-inner">
+          <img src="" alt="headphone">
+        </div>
+      </div>
+      <!-- gallery item end -->
+      <!-- gallery item start -->
+      <div class="gallery-item camera">
+        <div class="gallery-item-inner">
+          <img src="" alt="camera">
+        </div>
+      </div>
+      <!-- gallery item end -->
+      <div class="gallery-item phone">
+        <div class="gallery-item-inner">
+          <img src="" alt="phone">
+        </div>
+      </div>
+
+      <div class="gallery-item camera">
+        <div class="gallery-item-inner">
+          <img src="" alt="camera">
+        </div>
+      </div>
+
+      <div class="gallery-item watch">
+        <div class="gallery-item-inner">
+          <img src="" alt="watch">
+        </div>
+      </div>
+
+      <!-- gallery item start -->
+      <div class="gallery-item watch">
+        <div class="gallery-item-inner">
+          <img src="" alt="watch">
+        </div>
+      </div>
+      <!-- gallery item end -->
+    </div>
+  </div>
+</section>
+
+<script>
+ const filterContainer = document.querySelector(".gallery-filter"),
+ galleryItems = document.querySelectorAll(".gallery-item");
+
+ filterContainer.addEventListener("click", (event) =>{
+   if(event.target.classList.contains("filter-item")){
+     filterContainer.querySelector(".active").classList.remove("active");
+     event.target.classList.add("active");
+     const filterValue = event.target.getAttribute("data-filter");
+     galleryItems.forEach((item) =>{
+       if(item.classList.contains(filterValue) || filterValue === 'all'){
+         item.classList.remove("hide");
+         item.classList.add("show");
+       }
+       else{
+         item.classList.remove("show");
+         item.classList.add("hide");
+       }
+     });
+   }
+ });
+</script>
+
+</body>
+</html>
